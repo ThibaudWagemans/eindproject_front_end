@@ -164,10 +164,10 @@
             })).json();
           },
         }">
-          <input type="text" x-model="name">
-          <input type="text" x-model="price">
-          <input type="text" x-model="memory">
-          <input type="text" x-model="power">
+          <input type="text" x-model="name" placeholder="name (str)">
+          <input type="text" x-model="price" placeholder="price (int)">
+          <input type="text" x-model="memory" placeholder="memory (int)">
+          <input type="text" x-model="power" placeholder="power (int)">
           <button class="btn btn-primary" x-on:click="addGPU">add GPU</button>
           <p class="api-output"> GPU added to the list : 
               <span x-text="responsedata.name"></span>
@@ -195,10 +195,10 @@
             })).json();
           },
         }">
-          <input type="text" x-model="name">
-          <input type="text" x-model="price">
-          <input type="text" x-model="memory">
-          <input type="text" x-model="power">
+          <input type="text" x-model="name" placeholder="name (str)">
+          <input type="text" x-model="price" placeholder="price (int)">
+          <input type="text" x-model="memory" placeholder="memory (int)">
+          <input type="text" x-model="power" placeholder="power (int)">
           <button class="btn btn-primary" x-on:click="updateGPU">update GPU</button>
           <p class="api-output"> GPU updated in the list : 
               <span x-text="responsedata.name"></span>
