@@ -1,0 +1,149 @@
+<html>
+<head>
+    <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8">
+    <title>basisProject</title>
+    <html lang="en">
+</head>
+
+<body>
+
+    <!-- give random GPU -->
+    <div x-data="{
+        responsedata: null,
+        async getData() {
+            this.responsedata = await (await fetch('http://127.0.0.1:8000/GPUs/random')).json();
+        }
+    }">
+    <button x-on:click="getData">random GPU</button>
+    Data returned: <strong x-text="responsedata.name">Placeholder</strong>
+    </div>
+
+    <!-- show all GPUs -->
+    <div x-data="{
+        responsedata: [],
+        async getGPUs() {
+            fetch('http://127.0.0.1:8000/GPUs')
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <button type="button" @click="getGPUs"> search</button>
+    <ul>
+        <template x-for="GPU in responsedata">
+            <li>
+                <p> name: </p>
+                <p x-text="GPU.name"></p>
+                <p> price:  </p>
+                <p x-text="GPU.price"></p>
+                <p> memory : </p>
+                <p x-text="GPU.memory"></p>
+                <span> power:  </span>
+                <p x-text="GPU.power"></p>
+
+            </li>
+
+            
+        </template>
+    </ul>
+    </div>
+
+
+    <!-- search by name -->
+    <div x-data="{
+        responsedata: [],
+        name : '',
+        async getName() {
+            fetch('http://127.0.0.1:8000/GPUs/?name=' + this.name)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="name" placeholder="search by name">
+    <button type="button" @click="getName"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <li x-text="i"></li>
+        </template>
+    </ul>
+    </div>
+
+    <!-- search by price -->
+    <div x-data="{
+        responsedata: [],
+        price : '',
+        async getPrice() {
+            fetch('http://127.0.0.1:8000/GPUs/price/?price=' + this.price)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="price" placeholder="search by price">
+    <button type="button" @click="getPrice"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <li x-text="i"></li>
+        </template>
+    </ul>
+    </div>
+
+    
+    <!-- search by power -->
+    <div x-data="{
+        responsedata: [],
+        power : '',
+        async getPower() {
+            fetch('http://127.0.0.1:8000/GPUs/power/?power=' + this.power)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="power" placeholder="search by power">
+    <button type="button" @click="getPower"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <li x-text="i"></li>
+        </template>
+    </ul>
+    </div>
+
+    <!-- search by memory -->
+    <div x-data="{
+        responsedata: [],
+        memory : '',
+        async getmemory() {
+            fetch('http://127.0.0.1:8000/GPUs/memory/?memory=' + this.memory)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="memory" placeholder="search by memory">
+    <button type="button" @click="getmemory"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <li x-text="i"></li>
+        </template>
+    </ul>
+    </div>
+    
+    
+
+</body>
+
+</html>
