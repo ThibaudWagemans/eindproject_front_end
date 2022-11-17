@@ -205,8 +205,8 @@
                 memory: '',
                 power: '',
                 async updateGPU() {
-                  this.responsedata = await (await fetch(https://basisproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
-                    method: 'PuT',
+                  this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+                    method: 'PUT',
                   })).json();
                 },
               }">
