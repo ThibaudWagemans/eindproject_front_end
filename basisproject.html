@@ -13,7 +13,7 @@
     <div x-data="{
         responsedata: null,
         async getData() {
-            this.responsedata = await (await fetch('http://127.0.0.1:8000/GPUs/random')).json();
+            this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/random')).json();
         }
     }">
     <button x-on:click="getData">random GPU</button>
@@ -26,7 +26,7 @@
     <div x-data="{
         responsedata: [],
         async getGPUs() {
-            fetch('http://127.0.0.1:8000/GPUs')
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs')
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -62,7 +62,7 @@
         responsedata: [],
         name : '',
         async getName() {
-            fetch('http://127.0.0.1:8000/GPUs/?name=' + this.name)
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/?name=' + this.name)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -86,7 +86,7 @@
         responsedata: [],
         price : '',
         async getPrice() {
-            fetch('http://127.0.0.1:8000/GPUs/price/?price=' + this.price)
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/price/?price=' + this.price)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -110,7 +110,7 @@
         responsedata: [],
         power : '',
         async getPower() {
-            fetch('http://127.0.0.1:8000/GPUs/power/?power=' + this.power)
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/power/?power=' + this.power)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -134,7 +134,7 @@
         responsedata: [],
         memory : '',
         async getmemory() {
-            fetch('http://127.0.0.1:8000/GPUs/memory/?memory=' + this.memory)
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/memory/?memory=' + this.memory)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -167,7 +167,7 @@
                 memory: '',
                 power: '',
                 async addGPU() {
-                  this.responsedata = await (await fetch('http://127.0.0.1:8000/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+                  this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
                     method: 'POST',
                   })).json();
                 },
@@ -205,7 +205,7 @@
                 memory: '',
                 power: '',
                 async updateGPU() {
-                  this.responsedata = await (await fetch('http://127.0.0.1:8000/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+                  this.responsedata = await (await fetch(https://basisproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
                     method: 'PuT',
                   })).json();
                 },
@@ -234,7 +234,7 @@
           responsedata: [],
           name : '',
             async deleteGPU() {
-                this.responsedata = await (await fetch('http://127.0.0.1:8000/delete/?name=' + this.name, {
+                this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/delete/?name=' + this.name, {
                   method: 'delete',
                 })).json();
           }
