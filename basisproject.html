@@ -47,10 +47,7 @@
                 <span> power:  </span>
                 <p x-text="GPU.power"></p>
                 <hr>
-
             </li>
-
-            
         </template>
     </ul>
     </div>
@@ -154,79 +151,66 @@
     <hr>
 
     <!-- add GPU to list -->
-    <div class="row">
-        <div class="col-sm">
-          <div class="card">
-            <div class="card-body">
-              <hr>
-              <p class="card-text">add a GPU to the list</p>
-              <div x-data="{
-                responsedata: null,
-                name: '',
-                price: '',
-                memory: '',
-                power: '',
-                async addGPU() {
-                  this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
-                    method: 'POST',
-                  })).json();
-                },
-              }">
-                <input type="text" x-model="name">
-                <input type="text" x-model="price">
-                <input type="text" x-model="memory">
-                <input type="text" x-model="power">
-                <button class="btn btn-primary" x-on:click="addGPU">add GPU</button>
-                <p class="api-output"> GPU added to the list : 
-                    <span x-text="responsedata.name"></span>
-                    <span x-text="responsedata.price"></span>
-                    <span x-text="responsedata.memory"></span>
-                    <span x-text="responsedata.power"></span>
-                </p>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <div class="card-body">
+        <hr>
+        <p class="card-text">add a GPU to the list</p>
+        <div x-data="{
+          responsedata: null,
+          name: '',
+          price: '',
+          memory: '',
+          power: '',
+          async addGPU() {
+            this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+              method: 'POST',
+            })).json();
+          },
+        }">
+          <input type="text" x-model="name">
+          <input type="text" x-model="price">
+          <input type="text" x-model="memory">
+          <input type="text" x-model="power">
+          <button class="btn btn-primary" x-on:click="addGPU">add GPU</button>
+          <p class="api-output"> GPU added to the list : 
+              <span x-text="responsedata.name"></span>
+              <span x-text="responsedata.price"></span>
+              <span x-text="responsedata.memory"></span>
+              <span x-text="responsedata.power"></span>
+          </p>
+          </ul>
         </div>
-      </div>
-
+    </div>
       <hr>
     
       <!-- update GPU to list -->
-      <div class="row">
-        <div class="col-sm">
-          <div class="card">
-            <div class="card-body">
-              <hr>
-              <p class="card-text">update a GPU in the list</p>
-              <div x-data="{
-                responsedata: null,
-                name: '',
-                price: '',
-                memory: '',
-                power: '',
-                async updateGPU() {
-                  this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
-                    method: 'PUT',
-                  })).json();
-                },
-              }">
-                <input type="text" x-model="name">
-                <input type="text" x-model="price">
-                <input type="text" x-model="memory">
-                <input type="text" x-model="power">
-                <button class="btn btn-primary" x-on:click="updateGPU">update GPU</button>
-                <p class="api-output"> GPU updated in the list : 
-                    <span x-text="responsedata.name"></span>
-                    <span x-text="responsedata.price"></span>
-                    <span x-text="responsedata.memory"></span>
-                    <span x-text="responsedata.power"></span>
-                </p>
-              </div>
-            </div>
-          </div>
+    <div class="card-body">
+        <hr>
+        <p class="card-text">update a GPU in the list</p>
+        <div x-data="{
+          responsedata: null,
+          name: '',
+          price: '',
+          memory: '',
+          power: '',
+          async updateGPU() {
+            this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+              method: 'PUT',
+            })).json();
+          },
+        }">
+          <input type="text" x-model="name">
+          <input type="text" x-model="price">
+          <input type="text" x-model="memory">
+          <input type="text" x-model="power">
+          <button class="btn btn-primary" x-on:click="updateGPU">update GPU</button>
+          <p class="api-output"> GPU updated in the list : 
+              <span x-text="responsedata.name"></span>
+              <span x-text="responsedata.price"></span>
+              <span x-text="responsedata.memory"></span>
+              <span x-text="responsedata.power"></span>
+          </p>
         </div>
-      </div>
+    </div>
 
       <hr>
 
