@@ -34,7 +34,7 @@
                 });
         }
     }">
-    <button type="button" @click="getGPUs"> search</button>
+    <button type="button" @click="getGPUs"> show all GPUs</button>
     <ul>
         <template x-for="GPU in responsedata">
             <li>
@@ -183,6 +183,7 @@
                     <span x-text="responsedata.memory"></span>
                     <span x-text="responsedata.power"></span>
                 </p>
+                </ul>
               </div>
             </div>
           </div>
