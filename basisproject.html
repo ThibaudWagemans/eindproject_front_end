@@ -166,16 +166,9 @@
                 price: '',
                 memory: '',
                 power: '',
-                async postquote() {
+                async addGPU() {
                   this.responsedata = await (await fetch('http://127.0.0.1:8000/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
                     method: 'POST',
-                    body: JSON.stringify({
-                    content: this.postcustomquote,
-                    body: 'bar',
-                  }),
-                  headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                  },
                   })).json();
                 },
               }">
@@ -183,7 +176,7 @@
                 <input type="text" x-model="price">
                 <input type="text" x-model="memory">
                 <input type="text" x-model="power">
-                <button class="btn btn-primary" x-on:click="postquote">add GPU</button>
+                <button class="btn btn-primary" x-on:click="addGPU">add GPU</button>
                 <p class="api-output"> GPU added to the list : 
                     <span x-text="responsedata.name"></span>
                     <span x-text="responsedata.price"></span>
@@ -195,7 +188,8 @@
           </div>
         </div>
       </div>
-    
+
+      <hr>
     
       <!-- update GPU to list -->
       <div class="row">
@@ -203,23 +197,16 @@
           <div class="card">
             <div class="card-body">
               <hr>
-              <p class="card-text">add a GPU to the list</p>
+              <p class="card-text">update a GPU in the list</p>
               <div x-data="{
                 responsedata: null,
                 name: '',
                 price: '',
                 memory: '',
                 power: '',
-                async postquote() {
-                  this.responsedata = await (await fetch('http://127.0.0.1:8000/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                    content: this.postcustomquote,
-                    body: 'bar',
-                  }),
-                  headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                  },
+                async updateGPU() {
+                  this.responsedata = await (await fetch('http://127.0.0.1:8000/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+                    method: 'PuT',
                   })).json();
                 },
               }">
@@ -227,8 +214,8 @@
                 <input type="text" x-model="price">
                 <input type="text" x-model="memory">
                 <input type="text" x-model="power">
-                <button class="btn btn-primary" x-on:click="postquote">add GPU</button>
-                <p class="api-output"> GPU added to the list : 
+                <button class="btn btn-primary" x-on:click="updateGPU">update GPU</button>
+                <p class="api-output"> GPU updated in the list : 
                     <span x-text="responsedata.name"></span>
                     <span x-text="responsedata.price"></span>
                     <span x-text="responsedata.memory"></span>
@@ -240,7 +227,26 @@
         </div>
       </div>
 
+      <hr>
 
+      <!-- delete GPU out of list -->
+      <div x-data="{
+          responsedata: [],
+          name : '',
+            async deleteGPU() {
+                this.responsedata = await (await fetch('http://127.0.0.1:8000/delete/?name=' + this.name, {
+                  method: 'delete',
+                })).json();
+          }
+      }">
+      <input type="text" x-model="name" placeholder="delete by name">
+      <button type="button" @click="deleteGPU"> delete</button>
+      <ul>
+          <template x-for="i in responsedata">
+              <li x-text="i"></li>
+          </template>
+      </ul>
+      </div>
 
 </body>
 
