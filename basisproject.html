@@ -4,11 +4,16 @@
     <link rel="stylesheet" href="style/style.css">
     <meta charset="UTF-8">
     <title>basisProject</title>
-    <html lang="en">
+    <html lang="nl">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="text-center">
 
+
+    <div class="container">
+        <H1>API DEV front-end</H1>
+    <hr>
     <!-- give random GPU -->
     <div x-data="{
         responsedata: null,
@@ -17,7 +22,9 @@
         }
     }">
     <button x-on:click="getData">random GPU</button>
-    Data returned: <strong x-text="responsedata.name">Placeholder</strong>
+    <p>
+        The random GPU is: <strong x-text="responsedata.name">Placeholder</strong>
+    </p>
     </div>
 
     <hr>
@@ -36,18 +43,23 @@
     }">
     <button type="button" @click="getGPUs"> show all GPUs</button>
     <ul>
-        <template x-for="GPU in responsedata">
-            <li>
-                <p> name: </p>
-                <p x-text="GPU.name"></p>
-                <p> price:  </p>
-                <p x-text="GPU.price"></p>
-                <p> memory : </p>
-                <p x-text="GPU.memory"></p>
-                <span> power:  </span>
-                <p x-text="GPU.power"></p>
-            </li>
-        </template>
+        <table class="table">
+            <thead>
+                <th scope="col">name</th>
+                <th scope="col">price</th>
+                <th scope="col">memory</th>
+                <th scope="col">power</th>
+            </thead>
+            <tbody>
+                <template x-for="GPU in responsedata">
+                    <tr>
+                        <td x-text="GPU.name"></td>
+                        <td x-text="GPU.price"></td>
+                        <td x-text="GPU.memory"></td>
+                        <td x-text="GPU.power"></td>
+                    </tr>
+                </template>
+        </table>
     </ul>
     </div>
     
@@ -70,7 +82,7 @@
     <button type="button" @click="getName"> search</button>
     <ul>
         <template x-for="i in responsedata">
-            <li x-text="i"></li>
+            <p x-text="i"></p>
         </template>
     </ul>
     </div>
@@ -94,7 +106,7 @@
     <button type="button" @click="getPrice"> search</button>
     <ul>
         <template x-for="i in responsedata">
-            <li x-text="i"></li>
+            <p x-text="i"></p>
         </template>
     </ul>
     </div>
@@ -118,7 +130,7 @@
     <button type="button" @click="getPower"> search</button>
     <ul>
         <template x-for="i in responsedata">
-            <li x-text="i"></li>
+            <p x-text="i"></p>
         </template>
     </ul>
     </div>
@@ -142,7 +154,7 @@
     <button type="button" @click="getmemory"> search</button>
     <ul>
         <template x-for="i in responsedata">
-            <li x-text="i"></li>
+            <p x-text="i"></p>
         </template>
     </ul>
     </div>
@@ -168,14 +180,24 @@
           <input type="text" x-model="price" placeholder="price (int)">
           <input type="text" x-model="memory" placeholder="memory (int)">
           <input type="text" x-model="power" placeholder="power (int)">
-          <button class="btn btn-primary" x-on:click="addGPU">add GPU</button>
-          <p class="api-output"> GPU added to the list : 
-              <span x-text="responsedata.name"></span>
-              <span x-text="responsedata.price"></span>
-              <span x-text="responsedata.memory"></span>
-              <span x-text="responsedata.power"></span>
-          </p>
-          </ul>
+          <button x-on:click="addGPU">add GPU</button>
+          <ul>
+            <table class="table">
+                <thead>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">memory</th>
+                    <th scope="col">power</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.name"></td>
+                        <td x-text="responsedata.price"></td>
+                        <td x-text="responsedata.memory"></td>
+                        <td x-text="responsedata.power"></td>
+                    </tr>
+            </table>
+            </ul>
         </div>
     </div>
       <hr>
@@ -195,17 +217,29 @@
             })).json();
           },
         }">
-          <input type="text" x-model="name" placeholder="name (str)">
-          <input type="text" x-model="price" placeholder="price (int)">
-          <input type="text" x-model="memory" placeholder="memory (int)">
-          <input type="text" x-model="power" placeholder="power (int)">
-          <button class="btn btn-primary" x-on:click="updateGPU">update GPU</button>
-          <p class="api-output"> GPU updated in the list : 
-              <span x-text="responsedata.name"></span>
-              <span x-text="responsedata.price"></span>
-              <span x-text="responsedata.memory"></span>
-              <span x-text="responsedata.power"></span>
-          </p>
+            
+            <input type="text" x-model="name" placeholder="name (str)">
+            <input type="text" x-model="price" placeholder="price (int)">
+            <input type="text" x-model="memory" placeholder="memory (int)">
+            <input type="text" x-model="power" placeholder="power (int)">
+          <button x-on:click="updateGPU">update GPU</button>
+          <ul>
+            <table class="table">
+                <thead>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">memory</th>
+                    <th scope="col">power</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.name"></td>
+                        <td x-text="responsedata.price"></td>
+                        <td x-text="responsedata.memory"></td>
+                        <td x-text="responsedata.power"></td>
+                    </tr>
+            </table>
+            </ul>
         </div>
     </div>
 
@@ -224,11 +258,23 @@
       <input type="text" x-model="name" placeholder="delete by name">
       <button type="button" @click="deleteGPU"> delete</button>
       <ul>
+        <p></p>
           <template x-for="i in responsedata">
-              <li x-text="i"></li>
+            <p x-text="i"></p>
           </template>
       </ul>
       </div>
+
+      <hr>
+
+      <footer>
+        <p>© 2022 Thibaud Wagemans</p>
+        <p>r0801881</p>
+      </footer>
+
+    </div>
+
+    
 
 </body>
 
