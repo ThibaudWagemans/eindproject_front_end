@@ -68,19 +68,18 @@
     <!-- search by name -->
     <div x-data="{
         responsedata: null,
-        name : null,
-        async getName() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs?name=' + this.name,)
-                .then(response => response.json())
-                .then(data => {
-                    this.responsedata = data;
-                    console.log('responsedata:',this.responsedata);
-                });
+        name: null,
+        async getName(){
+          this.responsedata = await(await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs?name=' + this.name,
+          {
+             method: 'GET'
+          })).json();
         }
-    }">
-    <input type="text" x-model="name" placeholder="search by name">
-    <button type="button" @click="getName"> search</button>
-    <p x-text="responsedata"></p>\
+        
+        
+        <input type="text" x-model="name" placeholder="search by name">
+        <button type="button" x-on:click="getName"> search</button>
+        <p x-text="responsedata"></p>\
     </div>
 
     <hr>
