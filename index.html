@@ -166,9 +166,9 @@
         <p class="card-text">add a GPU to the list</p>
         <div x-data="{
           responsedata: null,
-          name: ''
-          price: ''
-          memory: ''
+          name: '',
+          price: '',
+          memory: '',
           power: '',
           async addGPU() {
             this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs, {
@@ -185,10 +185,11 @@
             })).json();
           },
         }">
-          <input type="text" x-model="name" placeholder="name (str)">
-          <input type="text" x-model="price" placeholder="price (int)">
-          <input type="text" x-model="memory" placeholder="memory (int)">
-          <input type="text" x-model="power" placeholder="power (int)">
+        <input type="text" x-model="name" placeholder="name (str)">
+        <input type="number" x-model="price" placeholder="price (int)">
+        <input type="number" x-model="memory" placeholder="memory (int)">
+        <input type="number" x-model="power" placeholder="power (int)">  
+
           <button x-on:click="addGPU">add GPU</button>
           <ul>
             <table class="table">
