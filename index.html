@@ -70,7 +70,7 @@
         responsedata: [],
         name : '',
         async getName() {
-            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/?name=' + this.name)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/?name=' + this.name)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -94,7 +94,7 @@
         responsedata: [],
         price : '',
         async getPrice() {
-            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/price/?price=' + this.price)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/price/?price=' + this.price)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -118,7 +118,7 @@
         responsedata: [],
         power : '',
         async getPower() {
-            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/power/?power=' + this.power)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/power/?power=' + this.power)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -142,7 +142,7 @@
         responsedata: [],
         memory : '',
         async getmemory() {
-            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/memory/?memory=' + this.memory)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/memory/?memory=' + this.memory)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -171,7 +171,7 @@
           memory: '',
           power: '',
           async addGPU() {
-            this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+            this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
               method: 'POST',
             })).json();
           },
@@ -212,7 +212,7 @@
           memory: '',
           power: '',
           async updateGPU() {
-            this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+            this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
               method: 'PUT',
             })).json();
           },
@@ -250,7 +250,7 @@
           responsedata: [],
           name : '',
             async deleteGPU() {
-                this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/delete/?name=' + this.name, {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/delete/?name=' + this.name, {
                   method: 'delete',
                 })).json();
           }
