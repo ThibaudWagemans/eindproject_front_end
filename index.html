@@ -70,7 +70,7 @@
         responsedata: [],
         name : '',
         async getName() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/?name=' + this.name)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs?name=' + this.name)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -94,7 +94,7 @@
         responsedata: [],
         price : '',
         async getPrice() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/price/?price=' + this.price)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/price?price=' + this.price)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -118,7 +118,7 @@
         responsedata: [],
         power : '',
         async getPower() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/power/?power=' + this.power)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/power?power=' + this.power)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -142,7 +142,7 @@
         responsedata: [],
         memory : '',
         async getmemory() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/memory/?memory=' + this.memory)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/memory?memory=' + this.memory)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -166,13 +166,22 @@
         <p class="card-text">add a GPU to the list</p>
         <div x-data="{
           responsedata: null,
-          name: '',
-          price: '',
-          memory: '',
+          name: ''
+          price: ''
+          memory: ''
           power: '',
           async addGPU() {
-            this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+            this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs, {
               method: 'POST',
+              body: JSON.stringify({
+                name: this.name,
+                price: this.price,
+                memory: this.memory,
+                power: this.power,
+              }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             })).json();
           },
         }">
