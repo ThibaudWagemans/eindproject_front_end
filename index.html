@@ -68,9 +68,9 @@
     <!-- search by name -->
     <div x-data="{
         responsedata: [],
-        name : '',
+        name : null,
         async getName() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs?name=' + this.name)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPU?name= + this.name)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
