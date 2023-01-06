@@ -70,7 +70,7 @@
         responsedata: [],
         name : '',
         async getName() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs?name=')
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs')
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
