@@ -220,22 +220,36 @@
     <div class="card-body">
         <p class="card-text">update a GPU in the list</p>
         <div x-data="{
-          responsedata: null,
-          name: '',
-          price: '',
-          memory: '',
-          power: '',
-          async updateGPU() {
-            this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
-              method: 'PUT',
-            })).json();
-          },
+            responsedata: [],
+            name : null,
+            price : null,
+            memory : null,
+            power : null,
+            async updateGPU() {
+                fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: this.name,
+                        price: this.price,
+                        memory: this.memory,
+                        power: this.power
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+            }
         }">
-            
-            <input type="text" x-model="name" placeholder="name (str)">
-            <input type="text" x-model="price" placeholder="price (int)">
-            <input type="text" x-model="memory" placeholder="memory (int)">
-            <input type="text" x-model="power" placeholder="power (int)">
+        <input type="text" x-model="name" placeholder="name (str)">
+        <input type="text" x-model="price" placeholder="price (int)">
+        <input type="text" x-model="memory" placeholder="memory (int)">
+        <input type="text" x-model="power" placeholder="power (int)">
+        
           <button x-on:click="updateGPU">update GPU</button>
           <ul>
             <table class="table">
