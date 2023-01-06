@@ -16,7 +16,7 @@
     <hr>
     <!-- give random GPU -->
     <div x-data="{
-        responsedata: null,
+        responsedata: '',
         async getData() {
             this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/random')).json();
         }
