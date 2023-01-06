@@ -70,7 +70,7 @@
         responsedata: [],
         name : '',
         async getName() {
-            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs/name?name=' + this.name)
+            fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs?name=' + this.name)
                 .then(response => response.json())
                 .then(data => {
                     this.responsedata = data;
@@ -189,8 +189,7 @@
         <input type="number" x-model="price" placeholder="price (int)">
         <input type="number" x-model="memory" placeholder="memory (int)">
         <input type="number" x-model="power" placeholder="power (int)">  
-
-          <button x-on:click="addGPU">add GPU</button>
+        <button x-on:click="addGPU">add GPU</button>
           <ul>
             <table class="table">
                 <thead>
