@@ -167,9 +167,9 @@
         <div x-data="{
           responsedata: null,
           name: '',
-          price: '',
-          memory: '',
-          power: '',
+          price: int,
+          memory: int,
+          power: int,
           async addGPU() {
             this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs, {
               method: 'POST',
