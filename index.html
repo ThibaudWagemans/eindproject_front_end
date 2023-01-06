@@ -65,6 +65,207 @@
     
     <hr>
 
+    <!-- search by name -->
+    <div x-data="{
+        responsedata: [],
+        name : '',
+        async getName() {
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/?name=' + this.name)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="name" placeholder="search by name">
+    <button type="button" @click="getName"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
+    </div>
+
+    <hr>
+
+    <!-- search by price -->
+    <div x-data="{
+        responsedata: [],
+        price : '',
+        async getPrice() {
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/price/?price=' + this.price)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="price" placeholder="search by price">
+    <button type="button" @click="getPrice"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
+    </div>
+
+    <hr>
+    
+    <!-- search by power -->
+    <div x-data="{
+        responsedata: [],
+        power : '',
+        async getPower() {
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/power/?power=' + this.power)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="power" placeholder="search by power">
+    <button type="button" @click="getPower"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
+    </div>
+
+    <hr>
+
+    <!-- search by memory -->
+    <div x-data="{
+        responsedata: [],
+        memory : '',
+        async getmemory() {
+            fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/GPUs/memory/?memory=' + this.memory)
+                .then(response => response.json())
+                .then(data => {
+                    this.responsedata = data;
+                    console.log('responsedata:',this.responsedata);
+                });
+        }
+    }">
+    <input type="text" x-model="memory" placeholder="search by memory">
+    <button type="button" @click="getmemory"> search</button>
+    <ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
+    </div>
+
+    <hr>
+
+    <!-- add GPU to list -->
+    <div class="card-body">
+        <p class="card-text">add a GPU to the list</p>
+        <div x-data="{
+          responsedata: null,
+          name: '',
+          price: '',
+          memory: '',
+          power: '',
+          async addGPU() {
+            this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/add/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+              method: 'POST',
+            })).json();
+          },
+        }">
+          <input type="text" x-model="name" placeholder="name (str)">
+          <input type="text" x-model="price" placeholder="price (int)">
+          <input type="text" x-model="memory" placeholder="memory (int)">
+          <input type="text" x-model="power" placeholder="power (int)">
+          <button x-on:click="addGPU">add GPU</button>
+          <ul>
+            <table class="table">
+                <thead>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">memory</th>
+                    <th scope="col">power</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.name"></td>
+                        <td x-text="responsedata.price"></td>
+                        <td x-text="responsedata.memory"></td>
+                        <td x-text="responsedata.power"></td>
+                    </tr>
+            </table>
+            </ul>
+        </div>
+    </div>
+      <hr>
+    
+      <!-- update GPU to list -->
+    <div class="card-body">
+        <p class="card-text">update a GPU in the list</p>
+        <div x-data="{
+          responsedata: null,
+          name: '',
+          price: '',
+          memory: '',
+          power: '',
+          async updateGPU() {
+            this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/update/?name=' + this.name + '&price=' + this.price + '&memory=' + this.memory + '&power=' + this.power, {
+              method: 'PUT',
+            })).json();
+          },
+        }">
+            
+            <input type="text" x-model="name" placeholder="name (str)">
+            <input type="text" x-model="price" placeholder="price (int)">
+            <input type="text" x-model="memory" placeholder="memory (int)">
+            <input type="text" x-model="power" placeholder="power (int)">
+          <button x-on:click="updateGPU">update GPU</button>
+          <ul>
+            <table class="table">
+                <thead>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">memory</th>
+                    <th scope="col">power</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.name"></td>
+                        <td x-text="responsedata.price"></td>
+                        <td x-text="responsedata.memory"></td>
+                        <td x-text="responsedata.power"></td>
+                    </tr>
+            </table>
+            </ul>
+        </div>
+    </div>
+
+      <hr>
+
+      <!-- delete GPU out of list -->
+      <div x-data="{
+          responsedata: [],
+          name : '',
+            async deleteGPU() {
+                this.responsedata = await (await fetch('https://basisproject-service-thibaudwagemans.cloud.okteto.net/delete/?name=' + this.name, {
+                  method: 'delete',
+                })).json();
+          }
+      }">
+      <input type="text" x-model="name" placeholder="delete by name">
+      <button type="button" @click="deleteGPU"> delete</button>
+      <ul>
+        <p></p>
+          <template x-for="i in responsedata">
+            <p x-text="i"></p>
+          </template>
+      </ul>
+      </div>
+
+      <hr>
 
       <footer>
         <p>© 2022 Thibaud Wagemans</p>
