@@ -226,7 +226,7 @@
             memory : null,
             power : null,
             async updateGPU() {
-                fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs', {
+                fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPU?name=', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -249,7 +249,7 @@
         <input type="text" x-model="price" placeholder="price (int)">
         <input type="text" x-model="memory" placeholder="memory (int)">
         <input type="text" x-model="power" placeholder="power (int)">
-        
+
           <button x-on:click="updateGPU">update GPU</button>
           <ul>
             <table class="table">
