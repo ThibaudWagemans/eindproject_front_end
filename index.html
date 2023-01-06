@@ -226,7 +226,7 @@
             memory : null,
             power : null,
             async updateGPU() {
-                fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPU?name=', {
+                fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/update_GPU', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
