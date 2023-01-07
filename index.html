@@ -314,9 +314,10 @@
                     headers: {
                         'Content-Type': 'application/json; charset=UTF-8',
                     },
-                    form-data: JSON.stringify({
+                    form: JSON.stringify({
                         username: this.username,
                         password: this.password
+                    })
                 })).json();
             }
         }">
