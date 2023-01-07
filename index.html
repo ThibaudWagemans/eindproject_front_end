@@ -357,11 +357,21 @@
         <input type="text" x-model="password" placeholder="password">
         <button type="button" @click="createUser"> create user</button>
         <ul>
-          <p></p>
-            <template x-for="i in responsedata">
-              <p x-text="i"></p>
-            </template>
-        </ul>
+            <table class="table">
+                <thead>
+                    <th scope="col">username</th>
+                    <th scope="col">id</th>
+                    <th scope="col">hashed_password</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.username"></td>
+                        <td x-text="responsedata.id"></td>
+                        <td x-text="responsedata.hashed_password"></td>
+                    </tr>
+            </table>
+            </ul>
+
         </div>
 
         <hr>
