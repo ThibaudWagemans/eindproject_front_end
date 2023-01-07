@@ -221,10 +221,10 @@
         <p class="card-text">update a GPU in the list</p>
         <div x-data="{
             responsedata: [],
-            name : null,
-            price : null,
-            memory : null,
-            power : null,
+            name : '',
+            price : '',
+            memory : '',
+            power : '',
             async updateGPU() {
                 fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/update_GPU', {
                     method: 'PUT',
@@ -306,8 +306,8 @@
       <!-- get token -->
         <div x-data="{
             responsedata: [],
-            username : null,
-            password : null,
+            username : '',
+            password : '',
             async getToken() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
                     method: 'post',
@@ -325,17 +325,10 @@
         <input type="text" x-model="password" placeholder="password">
         <button type="button" @click="getToken"> get token</button>
         <ul>
-            <table class="table">
-                <thead>
-                    <th scope="col">access_token</th>
-                    <th scope="col">token_type</th>
-                </thead>
-                <tbody>
-                    <tr x-for="GPU in responsedata">
-                        <td x-text="responsedata.access_token"></td>
-                        <td x-text="responsedata.token_type"></td>
-                    </tr>
-            </table>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
         </ul>
         </div>
 
@@ -408,8 +401,8 @@
         <!-- post createReleaseDate -->
         <div x-data="{
             responsedata: [],
-            name : null,
-            date : null,
+            name : '',
+            date : '',
             async createReleaseDate() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/createReleaseDate', {
                     method: 'post',
