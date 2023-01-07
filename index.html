@@ -489,8 +489,8 @@
                     <th scope="col">date</th>
                 </thead>
                 <tbody>
-                    <template x-for="user in responsedata">
-                        <tr x-for="releaseDate in responsedata">
+                    <template x-for="releaseDate in responsedata">
+                        <tr>
                             <td x-text="releaseDate.name"></td>
                             <td x-text="releaseDate.date"></td>
                         </tr>
