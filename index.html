@@ -380,7 +380,7 @@
         <!-- get users -->
         <div x-data="{
             responsedata: [],
-            async getUsers() {
+            async users() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users'
                 {
                     method: 'GET'
@@ -388,7 +388,7 @@
                 )).json();
             }
         }">
-        <button type="button" @click="getUsers"> get users</button>
+        <button type="button" @click="users"> get users</button>
         <ul>
             <table class="table">
                 <thead>
