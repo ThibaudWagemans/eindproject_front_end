@@ -366,7 +366,7 @@
                     <th scope="col">hashed_password</th>
                 </thead>
                 <tbody>
-                    <tr x-for="GPU in responsedata">
+                    <tr x-for="username in responsedata">
                         <td x-text="responsedata.username"></td>
                         <td x-text="responsedata.id"></td>
                         <td x-text="responsedata.hashed_password"></td>
@@ -384,11 +384,7 @@
         <div x-data="{
             responsedata: [],
             async getUsers() {
-                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users'
-                {
-                    method: 'GET'
-                }
-                )).json();
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users')).json();
             }
         }">
         <button type="button" x-on:click="getUsers"> get users</button>
@@ -443,7 +439,7 @@
                     <th scope="col">date</th>
                 </thead>
                 <tbody>
-                    <tr x-for="GPU in responsedata">
+                    <tr x-for="name in responsedata">
                         <td x-text="responsedata.name"></td>
                         <td x-text="responsedata.date"></td>
                     </tr>
