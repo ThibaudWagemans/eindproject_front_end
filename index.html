@@ -299,6 +299,126 @@
       </ul>
       </div>
 
+      <!-- get token -->
+        <div x-data="{
+            responsedata: [],
+            username : '',
+            password : '',
+            async getToken() {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: this.username,
+                        password: this.password
+                    })
+                })).json();
+            }
+        }">
+        <input type="text" x-model="username" placeholder="username">
+        <input type="text" x-model="password" placeholder="password">
+        <button type="button" @click="getToken"> get token</button>
+        <ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
+        </div>
+
+        <!-- create user -->
+        <div x-data="{
+            responsedata: [],
+            username : '',
+            password : '',
+            async createUser() {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/createusers', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: this.username,
+                        password: this.password
+                    })
+                })).json();
+            }
+        }">
+        <input type="text" x-model="username" placeholder="username">
+        <input type="text" x-model="password" placeholder="password">
+        <button type="button" @click="createUser"> create user</button>
+        <ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
+        </div>
+
+        <!-- get users -->
+        <div x-data="{
+            responsedata: [],
+            async getUsers() {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users')).json();
+            }
+        }">
+        <button type="button" @click="getUsers"> get users</button>
+        <ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
+        </div>
+    
+        <!-- post createReleaseDate -->
+        <div x-data="{
+            responsedata: [],
+            name : '',
+            releaseDate : '',
+            async createReleaseDate() {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/createReleaseDate', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: this.name,
+                        releaseDate: this.releaseDate
+                    })
+                })).json();
+            }
+        }">
+        <input type="text" x-model="name" placeholder="name">
+        <input type="text" x-model="releaseDate" placeholder="releaseDate">
+        <button type="button" @click="createReleaseDate"> create releaseDate</button>
+        <ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
+        </div>
+
+
+        <!-- get releaseDates -->
+        <div x-data="{
+            responsedata: [],
+            async getReleaseDates() {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/releaseDates')).json();
+            }
+        }">
+        <button type="button" @click="getReleaseDates"> get releaseDates</button>
+        <ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
+        </div>
+        
       <hr>
 
       <footer>
