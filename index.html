@@ -81,22 +81,10 @@
     <input type="text" x-model="name" placeholder="search by name">
     <button type="button" @click="getName"> search</button>
     <ul>
-        <table class="table">
-            <thead>
-                <th scope="col">name</th>
-                <th scope="col">price</th>
-                <th scope="col">memory</th>
-                <th scope="col">power</th>
-            </thead>
-            <tbody>
-                <tr x-for="GPU in responsedata">
-                    <td x-text="responsedata.name"></td>
-                    <td x-text="responsedata.price"></td>
-                    <td x-text="responsedata.memory"></td>
-                    <td x-text="responsedata.power"></td>
-                </tr>
-        </table>
-        </ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
     </div>
 
     <hr>
@@ -117,22 +105,10 @@
     <input type="text" x-model="price" placeholder="search by price">
     <button type="button" @click="getPrice"> search</button>
     <ul>
-        <table class="table">
-            <thead>
-                <th scope="col">name</th>
-                <th scope="col">price</th>
-                <th scope="col">memory</th>
-                <th scope="col">power</th>
-            </thead>
-            <tbody>
-                <tr x-for="GPU in responsedata">
-                    <td x-text="responsedata.name"></td>
-                    <td x-text="responsedata.price"></td>
-                    <td x-text="responsedata.memory"></td>
-                    <td x-text="responsedata.power"></td>
-                </tr>
-        </table>
-        </ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
     </div>
 
     <hr>
@@ -153,22 +129,10 @@
     <input type="text" x-model="power" placeholder="search by power">
     <button type="button" @click="getPower"> search</button>
     <ul>
-        <table class="table">
-            <thead>
-                <th scope="col">name</th>
-                <th scope="col">price</th>
-                <th scope="col">memory</th>
-                <th scope="col">power</th>
-            </thead>
-            <tbody>
-                <tr x-for="GPU in responsedata">
-                    <td x-text="responsedata.name"></td>
-                    <td x-text="responsedata.price"></td>
-                    <td x-text="responsedata.memory"></td>
-                    <td x-text="responsedata.power"></td>
-                </tr>
-        </table>
-        </ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
     </div>
 
     <hr>
@@ -189,22 +153,10 @@
     <input type="text" x-model="memory" placeholder="search by memory">
     <button type="button" @click="getmemory"> search</button>
     <ul>
-        <table class="table">
-            <thead>
-                <th scope="col">name</th>
-                <th scope="col">price</th>
-                <th scope="col">memory</th>
-                <th scope="col">power</th>
-            </thead>
-            <tbody>
-                <tr x-for="GPU in responsedata">
-                    <td x-text="responsedata.name"></td>
-                    <td x-text="responsedata.price"></td>
-                    <td x-text="responsedata.memory"></td>
-                    <td x-text="responsedata.power"></td>
-                </tr>
-        </table>
-        </ul>
+        <template x-for="i in responsedata">
+            <p x-text="i"></p>
+        </template>
+    </ul>
     </div>
 
     <hr>
@@ -341,22 +293,11 @@
       <input type="text" x-model="name" placeholder="delete by name">
       <button type="button" @click="deleteGPU"> delete</button>
       <ul>
-        <table class="table">
-            <thead>
-                <th scope="col">name</th>
-                <th scope="col">price</th>
-                <th scope="col">memory</th>
-                <th scope="col">power</th>
-            </thead>
-            <tbody>
-                <tr x-for="GPU in responsedata">
-                    <td x-text="responsedata.name"></td>
-                    <td x-text="responsedata.price"></td>
-                    <td x-text="responsedata.memory"></td>
-                    <td x-text="responsedata.power"></td>
-                </tr>
-        </table>
-        </ul>
+        <p></p>
+          <template x-for="i in responsedata">
+            <p x-text="i"></p>
+          </template>
+      </ul>
       </div>
 
       <hr>
@@ -384,22 +325,11 @@
         <input type="text" x-model="password" placeholder="password">
         <button type="button" @click="getToken"> get token</button>
         <ul>
-            <table class="table">
-                <thead>
-                    <th scope="col">username</th>
-                    <th scope="col">password</th>
-                    <th scope="col">access_token</th>
-                    <th scope="col">token_type</th>
-                </thead>
-                <tbody>
-                    <tr x-for="GPU in responsedata">
-                        <td x-text="responsedata.username"></td>
-                        <td x-text="responsedata.password"></td>
-                        <td x-text="responsedata.access_token"></td>
-                        <td x-text="responsedata.token_type"></td>
-                    </tr>
-            </table>
-            </ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
         </div>
 
         <hr>
@@ -427,8 +357,9 @@
         <input type="text" x-model="password" placeholder="password">
         <button type="button" @click="createUser"> create user</button>
         <ul>
+          <p></p>
             <template x-for="i in responsedata">
-                <p x-text="i"></p>
+              <p x-text="i"></p>
             </template>
         </ul>
         </div>
@@ -445,8 +376,9 @@
         }">
         <button type="button" @click="getUsers"> get users</button>
         <ul>
+          <p></p>
             <template x-for="i in responsedata">
-                <p x-text="i"></p>
+              <p x-text="i"></p>
             </template>
         </ul>
         </div>
@@ -477,18 +409,11 @@
         <input type="text" x-model="releaseDate" placeholder="releaseDate">
         <button type="button" @click="createReleaseDate"> create releaseDate</button>
         <ul>
-            <table class="table">
-                <thead>
-                    <th scope="col">name</th>
-                    <th scope="col">date</th>
-                </thead>
-                <tbody>
-                    <tr x-for="GPU in responsedata">
-                        <td x-text="responsedata.name"></td>
-                        <td x-text="responsedata.date"></td>
-                    </tr>
-            </table>
-            </ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
         </div>
 
         <hr>
@@ -504,18 +429,11 @@
         }">
         <button type="button" @click="getReleaseDates"> get releaseDates</button>
         <ul>
-            <table class="table">
-                <thead>
-                    <th scope="col">name</th>
-                    <th scope="col">date</th>
-                </thead>
-                <tbody>
-                    <tr x-for="GPU in responsedata">
-                        <td x-text="responsedata.name"></td>
-                        <td x-text="responsedata.date"></td>
-                    </tr>
-            </table>
-            </ul>
+          <p></p>
+            <template x-for="i in responsedata">
+              <p x-text="i"></p>
+            </template>
+        </ul>
         </div>
         
       <hr>
