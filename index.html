@@ -314,9 +314,10 @@
             async getToken() {
                 console.log('username:',this.username);
                 console.log('password',this.password);
-                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', 
+                {
                     method: 'POST',
-                    body : 'username=' + this.username + '&password=' +  this.password,
+                    body : 'username=' + this.username + 'password=' +  this.password,
                     headers: {
                         'Content-Type': 'application/json; charset=UTF-8',
                     }
