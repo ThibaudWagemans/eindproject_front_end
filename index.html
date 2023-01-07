@@ -410,11 +410,13 @@
                     <th scope="col">hashed_password</th>
                 </thead>
                 <tbody>
-                    <tr x-for="user in responsedata">
-                        <td x-text="responsedata.username"></td>
-                        <td x-text="responsedata.id"></td>
-                        <td x-text="responsedata.hashed_password"></td>
-                    </tr>
+                    <template x-for="GPU in responsedata">
+                        <tr>
+                            <td x-text="responsedata.username"></td>
+                            <td x-text="responsedata.id"></td>
+                            <td x-text="responsedata.hashed_password"></td>
+                        </tr>
+                    </template>
                 </tbody>
             </table>
         </ul>
@@ -460,7 +462,6 @@
             </table>
             </ul>
         </div>
-
         <hr>
     
         <p class="card-text">get all reseasedates</p>
