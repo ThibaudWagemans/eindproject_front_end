@@ -381,15 +381,28 @@
         <div x-data="{
             responsedata: [],
             async getUsers() {
-                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users')).json();
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users'
+                {
+                    method: 'GET'
+                }
+                )).json();
             }
         }">
         <button type="button" @click="getUsers"> get users</button>
         <ul>
-          <p></p>
-            <template x-for="i in responsedata">
-              <p x-text="i"></p>
-            </template>
+            <table class="table">
+                <thead>
+                    <th scope="col">username</th>
+                    <th scope="col">id</th>
+                    <th scope="col">hashed_password</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.username"></td>
+                        <td x-text="responsedata.id"></td>
+                        <td x-text="responsedata.hashed_password"></td>
+                    </tr>
+            </table>
         </ul>
         </div>
 
