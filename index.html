@@ -391,7 +391,6 @@
         <!-- get users -->
         <div x-data="{
             responsedata: [],
-            user : '',
             async getUsers() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users', {
                     method: 'get',
@@ -413,9 +412,9 @@
                 <tbody>
                     <template x-for="user in responsedata">
                         <tr>
-                            <td x-text="user.username"></td>
-                            <td x-text="user.id"></td>
-                            <td x-text="user.hashed_password"></td>
+                            <td x-text="responsedata.username"></td>
+                            <td x-text="responsedata.id"></td>
+                            <td x-text="responsedata.hashed_password"></td>
                         </tr>
                     </template>
                 </tbody>
