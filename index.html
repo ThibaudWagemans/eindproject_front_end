@@ -174,7 +174,7 @@
                 fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/GPUs', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json; charset=UTF-8',
                     },
                     body: JSON.stringify({
                         name: this.name,
@@ -229,7 +229,7 @@
                 fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/update_GPU', {
                     method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json; charset=UTF-8',
                     },
                     body: JSON.stringify({
                         name: this.name,
@@ -282,7 +282,7 @@
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/delete_GPU', {
                   method: 'delete',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json; charset=UTF-8',
                     },
                     body: JSON.stringify({
                         name: this.name
@@ -312,12 +312,11 @@
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
                     method: 'post',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json; charset=UTF-8',
                     },
-                    body: JSON.stringify({
+                    form-data: JSON.stringify({
                         username: this.username,
                         password: this.password
-                    })
                 })).json();
             }
         }">
@@ -351,7 +350,7 @@
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/createusers', {
                     method: 'post',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json; charset=UTF-8',
                     },
                     body: JSON.stringify({
                         username: this.username,
@@ -414,7 +413,7 @@
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/createReleaseDate', {
                     method: 'post',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json; charset=UTF-8',
                     },
                     body: JSON.stringify({
                         name: this.name,
