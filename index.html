@@ -316,7 +316,7 @@
                 console.log('password',this.password);
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
                     method: 'POST',
-                    form_data: JSON.stringify({
+                    body: JSON.stringify({
                         client_id: '',
                         client_secret: '',
                         scope: '',
