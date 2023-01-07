@@ -380,7 +380,7 @@
         <!-- get users -->
         <div x-data="{
             responsedata: [],
-            async users() {
+            async getUsers() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users'
                 {
                     method: 'GET'
@@ -388,7 +388,7 @@
                 )).json();
             }
         }">
-        <button type="button" @click="users"> get users</button>
+        <button type="button" x-on:click="getUsers"> get users</button>
         <ul>
             <table class="table">
                 <thead>
@@ -402,6 +402,7 @@
                         <td x-text="responsedata.id"></td>
                         <td x-text="responsedata.hashed_password"></td>
                     </tr>
+                </tbody>
             </table>
         </ul>
         </div>
