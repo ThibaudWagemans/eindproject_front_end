@@ -427,18 +427,10 @@
         <input type="text" x-model="password" placeholder="password">
         <button type="button" @click="createUser"> create user</button>
         <ul>
-            <table class="table">
-                <thead>
-                    <th scope="col">username</th>
-                    <th scope="col">hashed password</th>
-                </thead>
-                <tbody>
-                    <tr x-for="GPU in responsedata">
-                        <td x-text="responsedata.username"></td>
-                        <td x-text="responsedata.hashed_password"></td>
-                    </tr>
-            </table>
-            </ul>
+            <template x-for="i in responsedata">
+                <p x-text="i"></p>
+            </template>
+        </ul>
         </div>
 
         <hr>
@@ -453,20 +445,10 @@
         }">
         <button type="button" @click="getUsers"> get users</button>
         <ul>
-            <table class="table">
-                <thead>
-                    <th scope="col">username</th>
-                    <th scope="col">password</th>
-                    <th scope="col">id</th>
-                </thead>
-                <tbody>
-                    <tr x-for="GPU in responsedata">
-                        <td x-text="responsedata.username"></td>
-                        <td x-text="responsedata.password"></td>
-                        <td x-text="responsedata.id"></td>
-                    </tr>
-            </table>
-            </ul>
+            <template x-for="i in responsedata">
+                <p x-text="i"></p>
+            </template>
+        </ul>
         </div>
 
         <hr>
