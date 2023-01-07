@@ -315,8 +315,8 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        username: this.username,
-                        password: this.password
+                        username: this.postOUsername,
+                        password: this.postOTokenPassword
                     })
                 })).json();
             }
@@ -325,10 +325,17 @@
         <input type="text" x-model="password" placeholder="password">
         <button type="button" @click="getToken"> get token</button>
         <ul>
-          <p></p>
-            <template x-for="i in responsedata">
-              <p x-text="i"></p>
-            </template>
+            <table class="table">
+                <thead>
+                    <th scope="col">access_token</th>
+                    <th scope="col">token_type</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.access_token"></td>
+                        <td x-text="responsedata.token_type"></td>
+                    </tr>
+            </table>
         </ul>
         </div>
 
@@ -370,7 +377,7 @@
                         <td x-text="responsedata.hashed_password"></td>
                     </tr>
             </table>
-            </ul>
+        </ul>
 
         </div>
 
