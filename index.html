@@ -374,10 +374,10 @@
                     <th scope="col">hashed_password</th>
                 </thead>
                 <tbody>
-                    <tr x-for="username in responsedata">
-                        <td x-text="responsedata.username"></td>
-                        <td x-text="responsedata.id"></td>
-                        <td x-text="responsedata.hashed_password"></td>
+                    <tr x-for="user in responsedata">
+                        <td x-text="user.username"></td>
+                        <td x-text="user.id"></td>
+                        <td x-text="user.hashed_password"></td>
                     </tr>
                 </tbody>
             </table>
@@ -410,11 +410,11 @@
                     <th scope="col">hashed_password</th>
                 </thead>
                 <tbody>
-                    <template x-for="GPU in responsedata">
+                    <template x-for="user in responsedata">
                         <tr>
-                            <td x-text="responsedata.username"></td>
-                            <td x-text="responsedata.id"></td>
-                            <td x-text="responsedata.hashed_password"></td>
+                            <td x-text="user.username"></td>
+                            <td x-text="user.id"></td>
+                            <td x-text="user.hashed_password"></td>
                         </tr>
                     </template>
                 </tbody>
@@ -485,7 +485,8 @@
         <ul>
           <p></p>
             <template x-for="i in responsedata">
-              <p x-text="i"></p>
+                <p x-text="i.name"></p>
+                <p x-text="i.date"></p>
             </template>
         </ul>
         </div>
