@@ -308,8 +308,8 @@
       <!-- get token -->
         <div x-data="{
             responsedata: [],
-            username : '',
-            password : '',
+            username : null,
+            password : null,
 
             async getToken() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
@@ -327,6 +327,7 @@
                         'Content-Type': 'application/json; charset=UTF-8',
                     }
                 })).json();
+                console.log('responsedata:',this.responsedata);
             }
         }">
         <input type="text" x-model="username" placeholder="username">
