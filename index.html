@@ -409,7 +409,7 @@
         <div x-data="{
             responsedata: [],
             name : null,
-            releaseDate : null,
+            date : null,
             async createReleaseDate() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/createReleaseDate', {
                     method: 'post',
@@ -424,7 +424,7 @@
             }
         }">
         <input type="text" x-model="name" placeholder="name">
-        <input type="text" x-model="releaseDate" placeholder="releaseDate">
+        <input type="text" x-model="date" placeholder="releaseDate">
         <button type="button" @click="createReleaseDate"> create releaseDate</button>
         <ul>
           <p></p>
