@@ -319,7 +319,7 @@
                     method: 'POST',
                     body : 'username=' + this.username + 'password=' +  this.password,
                     headers: {
-                        'Content-Type': 'application/json; charset=UTF-8',
+                        'Content-type': 'application/x-www-form-urlencoded',
                     }
                 })).json();
                 console.log('responsedata:',this.responsedata);
