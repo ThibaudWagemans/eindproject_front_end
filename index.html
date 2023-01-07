@@ -471,7 +471,10 @@
             async getReleaseDates() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/releaseDates',
                 {
-                    method: 'GET'
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json; charset=UTF-8',
+                    },
                 }
                 )).json();
                 console.log('responsedata:',this.responsedata);
