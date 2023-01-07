@@ -420,11 +420,18 @@
         <input type="text" x-model="date" placeholder="date">
         <button type="button" @click="createReleaseDate"> create releaseDate</button>
         <ul>
-          <p></p>
-            <template x-for="i in responsedata">
-              <p x-text="i"></p>
-            </template>
-        </ul>
+            <table class="table">
+                <thead>
+                    <th scope="col">name</th>
+                    <th scope="col">date</th>
+                </thead>
+                <tbody>
+                    <tr x-for="GPU in responsedata">
+                        <td x-text="responsedata.name"></td>
+                        <td x-text="responsedata.date"></td>
+                    </tr>
+            </table>
+            </ul>
         </div>
 
         <hr>
