@@ -367,7 +367,7 @@
         <hr>
     
         <p class="card-text">get all users</p>
-        <!-- get users -->
+        <!-- get all users -->
         <div x-data="{
             responsedata: [],
             async getUsers() {
@@ -376,7 +376,6 @@
         }">
         <button type="button" @click="getUsers"> get users</button>
         <ul>
-          <p></p>
             <template x-for="i in responsedata">
               <p x-text="i"></p>
             </template>
