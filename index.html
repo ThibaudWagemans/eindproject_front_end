@@ -316,7 +316,7 @@
                     headers: {
                         'Content-Type': 'application/json; charset=UTF-8',
                     },
-                    form: JSON.stringify({
+                    body: JSON.stringify({
                         username: this.username,
                         password: this.password
                     })
@@ -395,11 +395,21 @@
         }">
         <button type="button" x-on:click="getUsers"> get users</button>
         <ul>
-            <p></p>
-              <template x-for="i in responsedata">
-                <p x-text="i"></p>
-              </template>
-          </ul>
+            <table class="table">
+                <thead>
+                    <th scope="col">username</th>
+                    <th scope="col">id</th>
+                    <th scope="col">hashed_password</th>
+                </thead>
+                <tbody>
+                    <tr x-for="user in responsedata">
+                        <td x-text="responsedata.username"></td>
+                        <td x-text="responsedata.id"></td>
+                        <td x-text="responsedata.hashed_password"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
         </div>
 
 
