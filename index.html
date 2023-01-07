@@ -460,7 +460,7 @@
                         <td x-text="responsedata.date"></td>
                     </tr>
             </table>
-            </ul>
+        </ul>
         </div>
         <hr>
     
@@ -483,11 +483,17 @@
         }">
         <button type="button" @click="getReleaseDates"> get releaseDates</button>
         <ul>
-          <p></p>
-            <template x-for="i in responsedata">
-                <p x-text="i.name"></p>
-                <p x-text="i.date"></p>
-            </template>
+            <table class="table">
+                <thead>
+                    <th scope="col">name</th>
+                    <th scope="col">date</th>
+                </thead>
+                <tbody>
+                    <tr x-for="releaseDate in responsedata">
+                        <td x-text="releaseDate.name"></td>
+                        <td x-text="releaseDate.date"></td>
+                    </tr>
+            </table>
         </ul>
         </div>
         
