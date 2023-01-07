@@ -371,7 +371,7 @@
         <div x-data="{
             responsedata: [],
             async getUsers() {
-                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/getusers')).json();
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/users')).json();
             }
         }">
         <button type="button" @click="getUsers"> get users</button>
