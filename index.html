@@ -430,12 +430,12 @@
             <table class="table">
                 <thead>
                     <th scope="col">username</th>
-                    <th scope="col">password</th>
+                    <th scope="col">hashed password</th>
                 </thead>
                 <tbody>
                     <tr x-for="GPU in responsedata">
                         <td x-text="responsedata.username"></td>
-                        <td x-text="responsedata.password"></td>
+                        <td x-text="responsedata.hashed_password"></td>
                     </tr>
             </table>
             </ul>
@@ -457,11 +457,13 @@
                 <thead>
                     <th scope="col">username</th>
                     <th scope="col">password</th>
+                    <th scope="col">id</th>
                 </thead>
                 <tbody>
                     <tr x-for="GPU in responsedata">
                         <td x-text="responsedata.username"></td>
                         <td x-text="responsedata.password"></td>
+                        <td x-text="responsedata.id"></td>
                     </tr>
             </table>
             </ul>
