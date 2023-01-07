@@ -310,6 +310,7 @@
             responsedata: [],
             username : '',
             password : '',
+
             async getToken() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
                     method: 'post',
@@ -317,6 +318,11 @@
                         'Content-Type': 'application/json; charset=UTF-8',
                     },
                     body: JSON.stringify({
+                        client_id: '',
+                        client_secret: '',
+                        scope: '',
+                        grant_type: '',
+                        refresh_token: '',
                         username: this.username,
                         password: this.password
                     })
