@@ -316,14 +316,7 @@
                 console.log('password',this.password);
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
                     method: 'POST',
-                    body: JSON.stringify({
-                        client_id: '',
-                        client_secret: '',
-                        scope: '',
-                        grant_type: '',
-                        username: this.username,
-                        password: this.password,
-                    }),
+                    body : 'username=' + this.postOUsername + '&password=' +  this.postOTokenPassword,
                     headers: {
                         'Content-Type': 'application/json; charset=UTF-8',
                     }
