@@ -278,8 +278,14 @@
           responsedata: [],
           name : '',
             async deleteGPU() {
-                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/delete/?name=' + this.name, {
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/delete_GPU', {
                   method: 'delete',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: this.name
+                    })
                 })).json();
           }
       }">
