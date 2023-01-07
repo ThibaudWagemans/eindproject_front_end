@@ -329,10 +329,18 @@
         <input type="text" x-model="password" placeholder="password">
         <button type="button" @click="getToken"> get token</button>
         <ul>
-          <p></p>
-            <template x-for="i in responsedata">
-              <p x-text="i"></p>
-            </template>
+            <table class="table">
+                <thead>
+                    <th scope="col">access_token</th>
+                    <th scope="col">token_type</th>
+                </thead>
+                <tbody>
+                    <tr x-for="username in responsedata">
+                        <td x-text="responsedata.access_token"></td>
+                        <td x-text="responsedata.token_type"></td>
+                    </tr>
+                </tbody>
+            </table>
         </ul>
         </div>
 
