@@ -321,7 +321,6 @@
                         client_secret: '',
                         scope: '',
                         grant_type: '',
-                        refresh_token: '',
                         username: this.username,
                         password: this.password,
                     }),
@@ -468,7 +467,7 @@
 
         <!-- get releaseDates -->
         <div x-data="{
-            responsedata: null,
+            responsedata: [],
             async getReleaseDates() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/releaseDates',
                 {
