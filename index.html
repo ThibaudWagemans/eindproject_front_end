@@ -307,7 +307,7 @@
       <p class="card-text">get acces token of a user</p>
       <!-- get token -->
         <div x-data="{
-            responsedata: [],
+            responsedata: null,
             username : null,
             password : null,
 
@@ -315,7 +315,7 @@
                 console.log('username:',this.username);
                 console.log('password',this.password);
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/token', {
-                    method: 'post',
+                    method: 'POST',
                     body: JSON.stringify({
                         client_id: '',
                         client_secret: '',
@@ -468,7 +468,7 @@
 
         <!-- get releaseDates -->
         <div x-data="{
-            responsedata: [],
+            responsedata: null,
             async getReleaseDates() {
                 this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/releaseDates',
                 {
