@@ -442,7 +442,14 @@
         <div x-data="{
             responsedata: [],
             async getReleaseDates() {
-                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/releaseDates')).json();
+                this.responsedata = await (await fetch('https://eindproject-service-thibaudwagemans.cloud.okteto.net/releaseDates',
+                {
+                    method: 'get',
+                    headers: {
+                        'Content-Type': 'application/json; charset=UTF-8',
+                    },
+                }
+                )).json();
             }
         }">
         <button type="button" @click="getReleaseDates"> get releaseDates</button>
