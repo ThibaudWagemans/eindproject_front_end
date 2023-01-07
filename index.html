@@ -377,7 +377,7 @@
         <hr>
     
         <p class="card-text">get all users</p>
-        <!-- get all users -->
+        <!-- get users -->
         <div x-data="{
             responsedata: [],
             async getUsers() {
@@ -411,13 +411,13 @@
                     },
                     body: JSON.stringify({
                         name: this.name,
-                        releaseDate: this.date
+                        date: this.date
                     })
                 })).json();
             }
         }">
         <input type="text" x-model="name" placeholder="name">
-        <input type="text" x-model="date" placeholder="releaseDate">
+        <input type="text" x-model="date" placeholder="date">
         <button type="button" @click="createReleaseDate"> create releaseDate</button>
         <ul>
           <p></p>
